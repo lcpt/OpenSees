@@ -214,6 +214,7 @@
     <ClCompile Include="..\..\..\SRC\element\dispBeamColumn\TimoshenkoBeamColumn2d.cpp" />
     <ClCompile Include="..\..\..\SRC\element\dispBeamColumn\TimoshenkoBeamColumn3d.cpp" />
     <ClCompile Include="..\..\..\SRC\element\elasticBeamColumn\ElasticBeamWarping3d.cpp" />
+    <ClCompile Include="..\..\..\SRC\element\elasticBeamColumn\ModElasticBeam3d.cpp" />
     <ClCompile Include="..\..\..\SRC\element\elasticBeamColumn\WheelRail.cpp" />
     <ClCompile Include="..\..\..\SRC\element\elastomericBearing\ElastomericBearingBoucWenMod3d.cpp" />
     <ClCompile Include="..\..\..\SRC\element\Element.cpp" />
@@ -246,6 +247,7 @@
     <ClCompile Include="..\..\..\SRC\element\mixedBeamColumn\MixedBeamColumn3d.cpp" />
     <ClCompile Include="..\..\..\SRC\element\mixedBeamColumn\MixedBeamColumnAsym3d.cpp" />
     <ClCompile Include="..\..\..\SRC\element\mvlem\E_SFI.cpp" />
+    <ClCompile Include="..\..\..\SRC\element\mvlem\E_SFI_MVLEM_3D.cpp" />
     <ClCompile Include="..\..\..\SRC\element\mvlem\MVLEM.cpp" />
     <ClCompile Include="..\..\..\SRC\element\mvlem\SFI_MVLEM.cpp" />
     <ClCompile Include="..\..\..\SRC\element\mvlem\MVLEM_3D.cpp" />
@@ -280,6 +282,10 @@
     <ClCompile Include="..\..\..\SRC\element\PFEMElement\TriMesh.cpp" />
     <ClCompile Include="..\..\..\SRC\element\PML\PML2D.cpp" />
     <ClCompile Include="..\..\..\SRC\element\PML\PML3D.cpp" />
+    <ClCompile Include="..\..\..\SRC\element\PML\PML2D_3.cpp" />
+    <ClCompile Include="..\..\..\SRC\element\PML\PML2D_5.cpp" />
+    <ClCompile Include="..\..\..\SRC\element\PML\PML2D_12.cpp" />
+    <ClCompile Include="..\..\..\SRC\element\PML\PML2DVISCOUS.cpp" />
     <ClCompile Include="..\..\..\SRC\element\RockingBC\RockingBC.cpp" />
     <ClCompile Include="..\..\..\SRC\element\shell\ShellANDeS.cpp" />
     <ClCompile Include="..\..\..\SRC\element\shell\ShellDKGQ.cpp" />
@@ -514,6 +520,7 @@
     <ClInclude Include="..\..\..\SRC\element\dispBeamColumn\TimoshenkoBeamColumn2d.h" />
     <ClInclude Include="..\..\..\SRC\element\dispBeamColumn\TimoshenkoBeamColumn3d.h" />
     <ClInclude Include="..\..\..\SRC\element\elasticBeamColumn\ElasticBeamWarping3d.h" />
+    <ClInclude Include="..\..\..\SRC\element\elasticBeamColumn\ModElasticBeam3d.h" />
     <ClInclude Include="..\..\..\SRC\element\elasticBeamColumn\WheelRail.h" />
     <ClInclude Include="..\..\..\SRC\element\elastomericBearing\ElastomericBearingBoucWenMod3d.h" />
     <ClInclude Include="..\..\..\SRC\element\Element.h" />
@@ -543,6 +550,7 @@
     <ClInclude Include="..\..\..\SRC\element\mixedBeamColumn\MixedBeamColumn3d.h" />
     <ClInclude Include="..\..\..\SRC\element\mixedBeamColumn\MixedBeamColumnAsym3d.h" />
     <ClInclude Include="..\..\..\SRC\element\mvlem\E_SFI.h" />
+    <ClInclude Include="..\..\..\SRC\element\mvlem\E_SFI_MVLEM_3D.h" />
     <ClInclude Include="..\..\..\SRC\element\mvlem\MVLEM.h" />
     <ClInclude Include="..\..\..\SRC\element\mvlem\SFI_MVLEM.h" />
     <ClInclude Include="..\..\..\SRC\element\mvlem\MVLEM_3D.h" />
@@ -571,6 +579,10 @@
     <ClInclude Include="..\..\..\SRC\element\PFEMElement\TriMesh.h" />
     <ClInclude Include="..\..\..\SRC\element\PML\PML2D.h" />
     <ClInclude Include="..\..\..\SRC\element\PML\PML3D.h" />
+    <ClInclude Include="..\..\..\SRC\element\PML\PML2D_3.h" />
+    <ClInclude Include="..\..\..\SRC\element\PML\PML2D_5.h" />
+    <ClInclude Include="..\..\..\SRC\element\PML\PML2D_12.h" />
+    <ClInclude Include="..\..\..\SRC\element\PML\PML2DVISCOUS.h" />
     <ClInclude Include="..\..\..\SRC\element\RockingBC\RockingBC.h" />
     <ClInclude Include="..\..\..\SRC\element\shell\ShellANDeS.h" />
     <ClInclude Include="..\..\..\SRC\element\shell\ShellDKGQ.h" />
