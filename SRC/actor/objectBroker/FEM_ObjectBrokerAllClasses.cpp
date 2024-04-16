@@ -163,6 +163,7 @@
 #include "JankowskiImpact.h"
 #include "ViscoelasticGap.h"
 #include "Pinching4Material.h"
+#include "SAWSMaterial.h"
 
 // Sections
 #include "ElasticSection2d.h"
@@ -194,6 +195,9 @@
 #include "Elliptical2.h"
 #include "Isolator2spring.h"
 #include "LayeredShellFiberSection.h" // Yuli Huang & Xinzheng Lu 
+#include "LayeredMembraneSection/ReinforcedConcreteLayeredMembraneSection.h" // M. J. Nunez
+#include "LayeredMembraneSection/LayeredMembraneSection.h" // M. J. Nunez
+#include "LayeredMembraneSection/ElasticMembraneSection.h" // M. J. Nunez
 
 // NDMaterials
 #include "ElasticIsotropicPlaneStrain2D.h"
@@ -261,6 +265,8 @@
 #include "stressDensityModel/stressDensity.h"
 #include "InitStressNDMaterial.h"
 #include "ASDConcrete3DMaterial.h"
+#include "OrthotropicRotatingAngleConcreteT2DMaterial01/OrthotropicRotatingAngleConcreteT2DMaterial01.h" // M. J. Nunez
+#include "SmearedSteelDoubleLayerT2DMaterial01/SmearedSteelDoubleLayerT2DMaterial01.h" // M. J. Nunez
 
 // Fibers
 #include "fiber/UniaxialFiber2d.h"
@@ -328,6 +334,8 @@
 #include "UWelements/Quad4FiberOverlay.h"
 #include "UWelements/Brick8FiberOverlay.h"
 #include "EmbeddedBeamInterfaceL.h"
+#include "SurfaceLoad.h"
+#include "TriSurfaceLoad.h"
 
 #include "PML/PML2D.h"
 #include "PML/PML3D.h"
@@ -373,6 +381,8 @@
 #include "mvlem/SFI_MVLEM_3D.h"	// Kristijan Kolozvari
 #include "mvlem/E_SFI_MVLEM_3D.h"	// Kristijan Kolozvari
 #include "mvlem/E_SFI.h"		// C. N. Lopez
+
+#include "mefi/MEFI.h"		// C. N. Lopez
 
 #include "elastomericBearing/ElastomericBearingBoucWen2d.h"
 #include "elastomericBearing/ElastomericBearingBoucWen3d.h"
@@ -919,6 +929,12 @@ FEM_ObjectBrokerAllClasses::getNewElement(int classTag)
     case ELE_TAG_SSPbrickUP:
       return new SSPbrickUP();
 
+    case ELE_TAG_SurfaceLoad:
+      return new SurfaceLoad();
+
+    case ELE_TAG_TriSurfaceLoad:
+      return new TriSurfaceLoad();      
+      
     case ELE_TAG_Quad4FiberOverlay:
       return new Quad4FiberOverlay(); //Amin Pakzad
 	
@@ -1017,6 +1033,9 @@ FEM_ObjectBrokerAllClasses::getNewElement(int classTag)
 		
 	case ELE_TAG_E_SFI:			// C. N. Lopez
 		return new E_SFI();		// C. N. Lopez	
+		
+	case ELE_TAG_MEFI:			// C. N. Lopez
+		return new MEFI();		// C. N. Lopez		
 
     case ELE_TAG_BBarFourNodeQuadUP:
       return new BBarFourNodeQuadUP();			
@@ -1708,6 +1727,9 @@ FEM_ObjectBrokerAllClasses::getNewUniaxialMaterial(int classTag)
 	case MAT_TAG_Pinching4:
 		return new Pinching4Material();
 
+	case MAT_TAG_SAWSMaterial:
+		return new SAWSMaterial();
+
 
 	default:
 
@@ -1820,6 +1842,16 @@ FEM_ObjectBrokerAllClasses::getNewSection(int classTag)
     case SEC_TAG_Isolator2spring:
       return new Isolator2spring();
 	
+
+	case SEC_TAG_ReinforcedConcreteLayeredMembraneSection:
+		return new ReinforcedConcreteLayeredMembraneSection();
+
+	case SEC_TAG_LayeredMembraneSection:
+		return new LayeredMembraneSection();
+
+	case SEC_TAG_ElasticMembraneSection:
+		return new ElasticMembraneSection();
+
 	default:
 	     opserr << "FEM_ObjectBrokerAllClasses::getNewSection - ";
 	     opserr << " - no section type exists for class tag ";
@@ -2014,6 +2046,12 @@ FEM_ObjectBrokerAllClasses::getNewNDMaterial(int classTag)
 
   case ND_TAG_ASDConcrete3DMaterial:
       return new ASDConcrete3DMaterial();
+
+  case ND_TAG_OrthotropicRotatingAngleConcreteT2DMaterial01:
+	  return new OrthotropicRotatingAngleConcreteT2DMaterial01();
+
+  case ND_TAG_SmearedSteelDoubleLayerT2DMaterial01:
+	  return new SmearedSteelDoubleLayerT2DMaterial01();
     
   default:
     opserr << "FEM_ObjectBrokerAllClasses::getNewNDMaterial - ";
